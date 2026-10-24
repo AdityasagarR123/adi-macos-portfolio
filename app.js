@@ -224,7 +224,7 @@ function lightbox(src, cap = "", video = false) {
    ========================================================= */
 const NOTES = [
   {
-    id: "about-me", group: "Pinned", emoji: "👋", title: "About Me", date: "7/1/26",
+    id: "about-me", group: "Pinned", title: "About Me", date: "7/1/26",
     preview: "Hey, I'm Aditya — a 5th-semester CSE student at MSIT…",
     html: () => `
       <img class="banner" src="assets/wallpaper.jpg" alt="Aditya sitting on a rock above the Kangra valley">
@@ -233,7 +233,7 @@ const NOTES = [
       <p>I'm always curious, always building, and constantly pushing myself to grow as an engineer and researcher — one project at a time.</p>`,
   },
   {
-    id: "experience", group: "Today", emoji: "💼", title: "Experience", date: "10/24/26",
+    id: "experience", group: "Today", title: "Experience", date: "10/24/26",
     preview: "DomAIyn Labs · DRDO · Geek Room",
     html: () => `
       <p class="muted">First-year Adi would not believe this summer. Two internships at once — one side was “build a working system,” the other was “figure out what we're even trying to measure.”</p>
@@ -241,7 +241,7 @@ const NOTES = [
         <div class="meta">${x.role}</div><ul>${x.points.map((p) => `<li>${p}</li>`).join("")}</ul></div>`).join("")}`,
   },
   {
-    id: "projects", group: "Today", emoji: "🛠️", title: "Projects", date: "10/24/26",
+    id: "projects", group: "Today", title: "Projects", date: "10/24/26",
     preview: "AI Bouncer, Sentra, TrustProof, Brave Custom Tab…",
     html: () => PROJECTS.map((p) => `<div class="card">
         <h3>${p.name}<span>${p.live ? `<a href="${p.live}" target="_blank" rel="noopener">live ↗</a> &nbsp;` : ""}<a href="https://github.com/${PROFILE.github}/${p.repo}" target="_blank" rel="noopener">code ↗</a></span></h3>
@@ -250,7 +250,7 @@ const NOTES = [
       `<p class="muted">More on <a href="https://github.com/${PROFILE.github}?tab=repositories" target="_blank" rel="noopener">GitHub</a>.</p>`,
   },
   {
-    id: "open-source", group: "Today", emoji: "🌱", title: "Open Source", date: "live",
+    id: "open-source", group: "Today", title: "Open Source", date: "live",
     preview: "Live from GitHub — PRs, commits, activity",
     html: () => `
       <p><span class="live">Live from GitHub</span> <span class="muted" style="font-size:12px">· Refreshes every 10 minutes</span></p>
@@ -264,7 +264,7 @@ const NOTES = [
     after: loadOpenSource,
   },
   {
-    id: "achievements", group: "Previous 7 Days", emoji: "🏆", title: "Hackathons & Wins", date: "10/20/26",
+    id: "achievements", group: "Previous 7 Days", title: "Hackathons & Wins", date: "10/20/26",
     preview: "Ctrl+Alt+Idea 2nd · HackHatch top 100 · brAInwave 2.0",
     html: () => `<div class="timeline">${ACHIEVEMENTS.map((a, i) => `<div class="stop">
         <div class="meta">stop 0${i + 1} / ${ACHIEVEMENTS.length} · ${a.when} · ${a.where}</div>
@@ -274,12 +274,12 @@ const NOTES = [
     after: (el) => el.querySelectorAll(".cert").forEach((img) => (img.onclick = () => lightbox(img.src, img.dataset.cap))),
   },
   {
-    id: "tech-stack", group: "Previous 7 Days", emoji: "🧰", title: "Tech Stack", date: "10/19/26",
+    id: "tech-stack", group: "Previous 7 Days", title: "Tech Stack", date: "10/19/26",
     preview: "C++, Python, JS · React, Node · TensorFlow…",
     html: () => SKILLS.map(([g, items], i) => `<h3>0${i + 1} · ${g}</h3><div class="chips">${items.map((s) => `<span class="chip">${s}</span>`).join("")}</div>`).join(""),
   },
   {
-    id: "treks", group: "Previous 30 Days", emoji: "🏔️", title: "Trek Checklist", date: "9/28/26",
+    id: "treks", group: "Previous 30 Days", title: "Trek Checklist", date: "9/28/26",
     preview: "2 done, 2 to go — EBC and ABC next",
     html: () => `
       <p>Mountains I have walked up, and the ones still waiting.</p>
@@ -289,13 +289,13 @@ const NOTES = [
     after: (el) => el.querySelectorAll("figure").forEach((f) => (f.onclick = () => lightbox(f.dataset.src, f.dataset.cap))),
   },
   {
-    id: "resume", group: "Older", emoji: "📄", title: "Resume", date: "7/3/26",
+    id: "resume", group: "Older", title: "Resume", date: "7/3/26",
     preview: "The one-page version",
     html: () => `<p>The one-page version. <a href="${PROFILE.resume}" target="_blank" rel="noopener">Open in a new tab ↗</a> · <a href="${PROFILE.resume}" download>Download</a></p>
       <iframe src="${PROFILE.resume}#view=FitH" title="Resume" style="width:100%;height:78vh;border:1px solid var(--line);border-radius:10px;background:#fff"></iframe>`,
   },
   {
-    id: "hit-me-up", group: "Older", emoji: "💬", title: "Hit Me Up", date: "7/1/26",
+    id: "hit-me-up", group: "Older", title: "Hit Me Up", date: "7/1/26",
     preview: "Email, GitHub, X, LinkedIn",
     html: () => `
       <p>Open to internships, research collabs, open-source mentoring, and trek buddies.</p>
@@ -362,14 +362,14 @@ function renderNotes(w, body, noteId) {
     let html = "", last = "";
     NOTES.filter((n) => !term || (n.title + n.preview).toLowerCase().includes(term)).forEach((n) => {
       if (n.group !== last) { html += `<div class="group-h">${n.group}</div>`; last = n.group; }
-      html += `<button class="row ${n.id === current ? "active" : ""}" data-id="${n.id}"><div class="r-title">${n.emoji} ${n.title}</div><div class="r-sub"><b>${n.date}</b>${n.preview}</div></button>`;
+      html += `<button class="row ${n.id === current ? "active" : ""}" data-id="${n.id}"><div class="r-title">${n.title}</div><div class="r-sub"><b>${n.date}</b>${n.preview}</div></button>`;
     });
     list.innerHTML = html || `<p class="muted" style="padding:16px">No notes match.</p>`;
   };
   const open = (id, fromUser) => {
     const n = NOTES.find((x) => x.id === id) || NOTES[0];
     current = n.id;
-    pane.innerHTML = `<article class="note"><button class="back">‹ Notes</button><div class="stamp">${n.date === "live" ? new Date().toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }) : n.date}</div><h1>${n.emoji} ${n.title}</h1>${n.html()}</article>`;
+    pane.innerHTML = `<article class="note"><button class="back">‹ Notes</button><div class="stamp">${n.date === "live" ? new Date().toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit" }) : n.date}</div><h1>${n.title}</h1>${n.html()}</article>`;
     pane.scrollTop = 0;
     $(".back", pane).onclick = () => showDetail(body, false);
     if (n.after) n.after(pane);
