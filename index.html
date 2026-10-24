@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Aditya Sagar</title>
+  <meta name="description" content="Aditya Sagar — CSE @ MSIT. Full-stack + ML, open source, red teaming, trekking.">
+  <link rel="icon" href="assets/avatar.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="wallpaper"></div>
+
+  <!-- menu bar -->
+  <header id="menubar">
+    <div class="mb-left">
+      <button class="mb-item apple" aria-label="Apple menu">
+        <svg viewBox="0 0 24 24" width="14" height="14"><path fill="currentColor" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.5z"/></svg>
+      </button>
+      <span class="mb-item mb-app" id="mb-app">Notes</span>
+      <span class="mb-item mb-hide-sm">File</span>
+      <span class="mb-item mb-hide-sm">Edit</span>
+      <span class="mb-item mb-hide-sm">View</span>
+      <span class="mb-item mb-hide-sm">Window</span>
+      <span class="mb-item mb-hide-sm">Help</span>
+    </div>
+    <div class="mb-right">
+      <span class="mb-item mb-hide-sm" id="mb-weather" title="New Delhi, live">☁︎ --°C</span>
+      <span class="mb-item mb-hide-sm" title="Wi-Fi">
+        <svg viewBox="0 0 24 24" width="15" height="15"><path fill="currentColor" d="M12 18.5a1.6 1.6 0 1 1 0 3.2 1.6 1.6 0 0 1 0-3.2zm0-5.2c1.9 0 3.6.7 4.9 1.9l-1.5 1.5a4.9 4.9 0 0 0-6.8 0l-1.5-1.5c1.3-1.2 3-1.9 4.9-1.9zm0-5.1c3.3 0 6.3 1.3 8.5 3.4L19 13.1a10 10 0 0 0-14 0l-1.5-1.5C5.7 9.5 8.7 8.2 12 8.2zm0-5.2c4.7 0 9 1.9 12 4.9l-1.5 1.5a14.9 14.9 0 0 0-21 0L0 7.9C3 4.9 7.3 3 12 3z"/></svg>
+      </span>
+      <span class="mb-item" id="mb-battery" title="Battery"><span id="mb-batt-pct">87%</span>
+        <svg viewBox="0 0 28 14" width="24" height="12"><rect x=".5" y=".5" width="23" height="13" rx="3.5" fill="none" stroke="currentColor" opacity=".5"/><rect id="mb-batt-fill" x="2" y="2" width="17" height="10" rx="2" fill="currentColor"/><rect x="25" y="4.5" width="2" height="5" rx="1" fill="currentColor" opacity=".5"/></svg>
+      </span>
+      <span class="mb-item" id="mb-clock"></span>
+    </div>
+  </header>
+
+  <main id="desktop"></main>
+
+  <nav id="dock" aria-label="Dock"></nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
